@@ -33,7 +33,7 @@ def fetch_movie_info(title):
     
     try:
         response = requests.get(base_url, params=params, timeout=5)
-        response.raise_for_status() # HTTP hatalarını (404, 500 vb.) yakalar
+        response.raise_for_status() # Catches HTTP errors (404, 500, etc.)
         data = response.json()
         
         if data.get('Response') == 'True':
@@ -55,8 +55,8 @@ def fetch_movie_info(title):
                 'description': data.get('Plot')
             }
     except requests.exceptions.RequestException as e:
-        # API ile ilgili bir hata oluşursa yakala ve ekrana yazdır
-        print(f"API Hatası Oluştu: {str(e)}")
+        # Catch and print any API-related errors
+        print(f"API Error Occurred: {str(e)}")
         
     return None
 
@@ -157,4 +157,4 @@ def internal_error(e):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run('localhost', 5001, debug=False)
+    app.run('localhost', 5001, debug=True)
