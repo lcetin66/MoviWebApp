@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Users</h2>
+
+{% for user in users %}
+<div class="card">
+    <div class="user-name">{{ user.name }}</div>
+    <a href="{{ url_for('get_user_movies', user_id=user.id) }}" class="btn">View Movies</a>
+</div>
+{% endfor %}
+
+<div class="card">
+    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Add New User</h3>
+    <form action="{{ url_for('add_user') }}" method="POST" class="form-group">
+        <input type="text" name="name" placeholder="User name" required>
+        <button type="submit" class="btn">Add User</button>
+    </form>
+</div>
+{% endblock %}

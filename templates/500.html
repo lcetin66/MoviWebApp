@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}500 - Technical Difficulties{% endblock %}
+
+{% block content %}
+<div class="error-container">
+    <div class="bounce">⚙️</div>
+    <div class="error-code">500</div>
+    <div class="error-message">Scene Interrupted!</div>
+    <p class="error-description">
+        Our camera ran out of film or the set collapsed. Our technical crew is working hard to fix the glitch. 
+        Please try refreshing the scene or head back to the home base.
+    </p>
+    <a href="{{ url_for('home') }}" class="btn">Back to Home</a>
+</div>
+{% endblock %}

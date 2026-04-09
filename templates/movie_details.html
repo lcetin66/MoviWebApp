@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{ movie.title }} - Details{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: 2rem;">
+    <a href="{{ url_for('get_user_movies', user_id=user_id) }}" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">← Back to Collection</a>
+</div>
+
+<div class="card" style="display: flex; gap: 4rem; padding: 4rem; align-items: flex-start;">
+    <div style="flex: 1.2; max-width: 550px;">
+        <img src="{{ movie.poster or 'https://via.placeholder.com/400x600?text=' + movie.title }}" 
+             alt="{{ movie.title }}" style="width: 100%; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.3);">
+    </div>
+    
+    <div style="flex: 1.5; text-align: left;">
+        <h2 style="font-size: 3rem; margin-bottom: 0.5rem;">{{ movie.title }}</h2>
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+            <span style="background: var(--bg-light); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">{{ movie.release_year }}</span>
+            <span style="background: #fef08a; color: #854d0e; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; font-weight: 700;">⭐ {{ movie.rating }}</span>
+            <span style="background: #dcfce7; color: #166534; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">{{ movie.genre }}</span>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-muted);">Director</h3>
+            <p style="font-size: 1.2rem; font-weight: 600;">{{ movie.director }}</p>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-muted);">Plot</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #475569;">{{ movie.description }}</p>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-muted);">Countries</h3>
+            <p>{{ movie.countries }}</p>
+        </div>
+
+        {% if movie.imdb_id %}
+        <a href="https://www.imdb.com/title/{{ movie.imdb_id }}" target="_blank" class="btn" style="background-color: #f5c518; color: black;">View on IMDb</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

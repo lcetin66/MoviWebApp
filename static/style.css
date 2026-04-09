@@ -1,0 +1,219 @@
+:root {
+    --primary-blue: #3b66de;
+    --dark-blue: #253b8c;
+    --bg-light: #f5f7fb;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: var(--primary-blue);
+    padding: 1.5rem 0;
+    color: white;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #e2e8f0;
+}
+
+.user-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--dark-blue);
+}
+
+/* Form */
+.form-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: -1px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+/* Movies List Specifics */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.movie-card-vertical {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.movie-poster-v {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.btn-update {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.btn-delete {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.movie-detail-text {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.movie-detail-text strong {
+    font-weight: 700;
+}
+
+/* 404 Page Styles */
+.error-container {
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+.error-code {
+    font-size: 8rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.error-message {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.error-description {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+}
+
+.bounce {
+    display: inline-block;
+    animation: bounce 2s infinite;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
