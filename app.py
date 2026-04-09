@@ -16,14 +16,14 @@ except ImportError:
     from data_manager import DataManager
     from models import db, User, Movie
 
-load_dotenv()
+base_dir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(base_dir, ".env"))
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default_secret_key')
 app.config['OMDB_API_KEY'] = os.getenv('OMDB_API_KEY')
 
 # Database configuration
-base_dir = os.path.abspath(os.path.dirname(__file__))
 db_path = os.path.join(base_dir, "data", "movies.db")
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

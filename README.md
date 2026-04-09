@@ -89,6 +89,54 @@ A modern, highly responsive movie collection management web application. **Movie
 
 ---
 
+## 🌐 Deploy to PythonAnywhere
+
+1. **Upload the project** (Bash console):
+   ```bash
+   cd ~
+   git clone https://github.com/lcetin66/MoviWebApp.git
+   cd MoviWebApp
+   ```
+
+2. **Create virtualenv and install dependencies**:
+   ```bash
+   mkvirtualenv --python=/usr/bin/python3.13 moviwebapp-venv
+   pip install -r requirements.txt
+   ```
+   If Python 3.13 is not available on your account, use `/usr/bin/python3.12` and pick the same version in Web tab.
+
+3. **Set environment values**:
+   Create `.env` in project root:
+   ```env
+   OMDB_API_KEY=your_key_here
+   SECRET_KEY=your_secret_key_here
+   ```
+
+4. **Create web app** in PythonAnywhere Dashboard:
+   - Web -> **Add a new web app**
+   - Choose **Manual configuration**
+   - Select Python **3.13** (or the same version you used in `mkvirtualenv`)
+   - Set **Virtualenv** path to:
+     `/home/lcetin/.virtualenvs/moviwebapp-venv`
+
+5. **Edit WSGI file** (`/var/www/lcetin_pythonanywhere_com_wsgi.py`):
+   ```python
+   import sys
+   path = '/home/lcetin/MoviWebApp'
+   if path not in sys.path:
+       sys.path.insert(0, path)
+
+   from app import app as application
+   ```
+
+6. **Configure static files** (Web tab -> Static files):
+   - URL: `/static/`
+   - Directory: `/home/lcetin/MoviWebApp/static/`
+
+7. **Reload** the web app from the Web tab.
+
+---
+
 ## 💡 How It Works
 
 1. **Data Layer**: Powered by **SQLAlchemy ORM**, managing a one-to-many relationship between Users and Movies.
