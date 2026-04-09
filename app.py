@@ -24,7 +24,9 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default_secret_key')
 app.config['OMDB_API_KEY'] = os.getenv('OMDB_API_KEY')
 
 # Database configuration
-db_path = os.path.join(base_dir, "data", "movies.db")
+data_dir = os.path.join(base_dir, "data")
+os.makedirs(data_dir, exist_ok=True)
+db_path = os.path.join(data_dir, "movies.db")
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
