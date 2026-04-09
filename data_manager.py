@@ -2,14 +2,19 @@
 This module handles all database operations.
 """
 from sqlalchemy.exc import SQLAlchemyError
-from models import db, User, Movie
+try:
+    from .models import db, User, Movie
+except ImportError:
+    from models import db, User, Movie
 
 class DataManager():
     """
     Handles all database operations.
     """
     def create_user(self,name:str)->None:
-        
+        """
+        Creates a new user in the database.
+        """
         try:
             new_user = User(name=name)
             db.session.add(new_user)
@@ -19,26 +24,33 @@ class DataManager():
             print("Error:", e)
 
     def get_users(self):
+        """
+        Returns a list of all users.
+        """
         users = User.query.all()
         return users
 
     def get_movies(self, user_id):
-        """Returns a list of all movies for a specific user ID."""
+        """
+        Returns a list of all movies for a specific user ID.
+        """
         user = db.session.get(User, user_id)
         if user:
             return user.movies
         return []
-    
+
 
     def add_movie(self, movie):
-        
+        """
+        Adds a movie to the database.
+        """
         try:
             new_movie = Movie(
-                title=movie.title, 
+                title=movie.title,
                 director=movie.director,
-                release_year=movie.release_year, 
+                release_year=movie.release_year,
                 poster=movie.poster,
-                genre=movie.genre, 
+                genre=movie.genre,
                 rating=movie.rating,
                 imdb_id=movie.imdb_id,
                 countries=movie.countries,
