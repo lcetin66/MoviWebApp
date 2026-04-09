@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}MovieWeb-App{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>🎬 MovieWeb-App</h1>
+        <div class="header-content">
+            <img src="{{ url_for('static', filename='logo.svg') }}" alt="MovieWeb-App Logo" class="app-logo">
+            <h1>Movie<span>Web</span>-App</h1>
+        </div>
     </header>
 
     <div class="container">
@@ -19,7 +23,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 MovieWeb-App. All rights reserved.</p>
+        <p>&copy; 2025 MovieWeb-App. Built with <i class="fas fa-heart" style="color: var(--primary-color);"></i> for film lovers.</p>
     </footer>
 </body>
 </html>
