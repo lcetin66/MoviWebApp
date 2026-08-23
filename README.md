@@ -1,4 +1,4 @@
-# MovieWeb-App 🎬
+şap# MovieWeb-App 🎬
 
 ![Python](https://img.shields.io/badge/python-3.x-blue.svg)
 ![Flask](https://img.shields.io/badge/flask-v3.x-lightgrey.svg)
@@ -148,3 +148,4 @@ A modern, highly responsive movie collection management web application. **Movie
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+Masterschool Project
