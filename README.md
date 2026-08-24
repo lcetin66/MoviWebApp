@@ -148,4 +148,4 @@ A modern, highly responsive movie collection management web application. **Movie
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-__ Masterschool Project __
+
